@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using alumnus.Models.Oportunities;
 using alumnus.Data;
 
-namespace alumnus.Controllers
+namespace alumnus.Controllers.Api
 {
     [Route("api/oportunities")]
     public class OportunitiesController : Controller
@@ -19,7 +19,6 @@ namespace alumnus.Controllers
         public IActionResult GetAll()
         {
             var items = _context.Oportunities.ToList();
-
             return new ObjectResult(items);
         }
 

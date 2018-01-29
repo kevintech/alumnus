@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using alumnus.Models.Resources;
 using alumnus.Data;
 
-namespace alumnus.Controllers
+namespace alumnus.Controllers.Api
 {
     [Route("api/resources")]
     public class ResourcesController : Controller
@@ -19,7 +19,6 @@ namespace alumnus.Controllers
         public IActionResult GetAll()
         {
             var items = _context.Resources.ToList();
-
             return new ObjectResult(items);
         }
 
