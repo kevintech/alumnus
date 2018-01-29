@@ -6,11 +6,11 @@ using alumnus.Data;
 namespace alumnus.Controllers.Api
 {
     [Route("api/contacts")]
-    public class ContactsController : Controller
+    public class ContactsApiController : Controller
     {
         private readonly AlumnusContext _context;
 
-        public ContactsController(AlumnusContext context)
+        public ContactsApiController(AlumnusContext context)
         {
             _context = context;
         }

@@ -62,6 +62,18 @@ namespace alumnus
                 routes.MapRoute(
                     name: "login",
                     template: "{controller=Login}/{action=Index}");
+
+                routes.MapRoute(
+                    name: "contacts",
+                    template: "{controller=Contacts}/{action=Index}");
+
+                routes.MapRoute(
+                    name: "oportunities",
+                    template: "{controller=Oportunities}/{action=Index}");
+
+                routes.MapRoute(
+                    name: "resources",
+                    template: "{controller=Resources}/{action=Index}");
             });
         }
     }

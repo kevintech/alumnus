@@ -6,11 +6,11 @@ using alumnus.Data;
 namespace alumnus.Controllers.Api
 {
     [Route("api/oportunities")]
-    public class OportunitiesController : Controller
+    public class OportunitiesApiController : Controller
     {
         private readonly AlumnusContext _context;
 
-        public OportunitiesController(AlumnusContext context)
+        public OportunitiesApiController(AlumnusContext context)
         {
             _context = context;
         }
