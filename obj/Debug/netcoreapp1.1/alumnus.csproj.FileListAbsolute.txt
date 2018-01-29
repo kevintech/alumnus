@@ -1,9 +1,0 @@
-/Users/kevinherrarte/Repositories/alumnus/bin/Debug/netcoreapp1.1/alumnus.deps.json
-/Users/kevinherrarte/Repositories/alumnus/bin/Debug/netcoreapp1.1/alumnus.runtimeconfig.json
-/Users/kevinherrarte/Repositories/alumnus/bin/Debug/netcoreapp1.1/alumnus.runtimeconfig.dev.json
-/Users/kevinherrarte/Repositories/alumnus/bin/Debug/netcoreapp1.1/alumnus.dll
-/Users/kevinherrarte/Repositories/alumnus/bin/Debug/netcoreapp1.1/alumnus.pdb
-/Users/kevinherrarte/Repositories/alumnus/obj/Debug/netcoreapp1.1/alumnus.csproj.CoreCompileInputs.cache
-/Users/kevinherrarte/Repositories/alumnus/obj/Debug/netcoreapp1.1/alumnus.AssemblyInfo.cs
-/Users/kevinherrarte/Repositories/alumnus/obj/Debug/netcoreapp1.1/alumnus.dll
-/Users/kevinherrarte/Repositories/alumnus/obj/Debug/netcoreapp1.1/alumnus.pdb
