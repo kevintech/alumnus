@@ -1,0 +1,44 @@
+@model alumnus.Models.Oportunities.Oportunities
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Nuevo Registro</h3>
+        <p>
+            Ingrese los datos del anuncio que desea publicar sobre un trabajo, tema de EPS o una práctica supervisada
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <form method="post">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Title">Título</label>
+                <input asp-for="Title" class="form-control" placeholder="Trabajo de Gerente de Región" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="EndDate">Fecha de Finalización</label>
+                <input asp-for="EndDate" class="form-control" placeholder="dia/mes/año" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Type">Tipo</label>
+                <select asp-for="Type" asp-items="Html.GetEnumSelectList<alumnus.Models.Oportunities.Type>()" class="form-control">
+                    <option selected="selected" value="">Selecciona una opción</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Description">Descripción del anuncio</label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </div>
+    </form>
+</div>

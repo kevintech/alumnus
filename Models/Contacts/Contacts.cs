@@ -12,11 +12,13 @@ namespace alumnus.Models.Contacts
         [Required]
         public string LastName { get; set; }
         [Required]
+        [DataType("date")]
         public DateTime BirthDay { get; set; }
         [Required]
         public string Email { get; set; }
         public string Address { get; set; }
         [Column("graduation_date")]
+        [DataType("date")]
         public DateTime GraduationDate { get; set; }
         [Column("current_job")]
         public string CurrentJob { get; set; }

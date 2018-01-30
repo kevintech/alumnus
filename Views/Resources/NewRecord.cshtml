@@ -1,0 +1,44 @@
+@model alumnus.Models.Resources.Resources
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Nuevo Registro</h3>
+        <p>
+            Ingrese los datos del recurso que desea publicar y elija el tipo (enlace de interés, noticia o archivo para descargar)
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <form method="post">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Title">Título</label>
+                <input asp-for="Title" class="form-control" placeholder="Trabajo de Gerente de Región" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Type">Tipo</label>
+                <select asp-for="Type" asp-items="Html.GetEnumSelectList<alumnus.Models.Resources.Type>()" class="form-control">
+                    <option selected="selected" value="">Selecciona una opción</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Url">URL</label>
+                <input asp-for="Url" class="form-control" placeholder="http://example.com" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Description">Descripción del enlace o archivo</label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </div>
+    </form>
+</div>

@@ -12,5 +12,10 @@ namespace alumnus.Controllers
         {
             return View();
         }
+
+        public IActionResult New()
+        {
+            return View("NewRecord");
+        }
     }
 }

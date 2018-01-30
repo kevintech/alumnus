@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
 
@@ -10,6 +11,7 @@ namespace alumnus.Models.Oportunities
         public string Title { get; set; }
         public string Description { get; set; }
         [Column("end_date")]
+        [DataType("date")]
         public DateTime EndDate { get; set; }
         private string _typeString;
         [Column("type")]
