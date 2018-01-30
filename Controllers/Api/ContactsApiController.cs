@@ -37,7 +37,7 @@ namespace alumnus.Controllers.Api
         [HttpPost]
         public IActionResult Create([FromBody] Contacts contact)
         {
-            if (contact == null)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
@@ -50,7 +50,7 @@ namespace alumnus.Controllers.Api
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] Contacts contact)
         {
-            if (contact == null || contact.Id != id)
+            if (!ModelState.IsValid || contact.Id != id)
             {
                 return BadRequest();
             }

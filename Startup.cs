@@ -65,15 +65,15 @@ namespace alumnus
 
                 routes.MapRoute(
                     name: "contacts",
-                    template: "{controller=Contacts}/{action=Index}");
+                    template: "{controller=Contacts}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "oportunities",
-                    template: "{controller=Oportunities}/{action=Index}");
+                    template: "{controller=Oportunities}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "resources",
-                    template: "{controller=Resources}/{action=Index}");
+                    template: "{controller=Resources}/{action=Index}/{id?}");
             });
         }
     }

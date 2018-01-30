@@ -37,7 +37,7 @@ namespace alumnus.Controllers.Api
         [HttpPost]
         public IActionResult Create([FromBody] Resources resource)
         {
-            if (resource == null)
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
@@ -50,7 +50,7 @@ namespace alumnus.Controllers.Api
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] Resources resource)
         {
-            if (resource == null || resource.Id != id)
+            if (!ModelState.IsValid || resource.Id != id)
             {
                 return BadRequest();
             }

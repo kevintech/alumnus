@@ -1,0 +1,66 @@
+@model alumnus.Models.Contacts.Contacts
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Nuevo Contacto</h3>
+        <p>
+            Ingrese los datos correspondientes del ex-alumno que desea registar al sistema
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <form method="post">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="FirstName">Nombres</label>
+                <input asp-for="FirstName" class="form-control" placeholder="Primer y segundo nombre" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="LastName">Apellidos</label>
+                <input asp-for="LastName" class="form-control" placeholder="Apellidos" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BirthDay">Fecha de Nacimiento</label>
+                <input asp-for="BirthDay" class="form-control" placeholder="dia/mes/año" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Email">Correo electrónico</label>
+                <input asp-for="Email" class="form-control" placeholder="ejemplo@dominio.com" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="GraduationDate">Fecha de Graduación</label>
+                <input asp-for="GraduationDate" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Address">Dirección de Residencia</label>
+                <textarea asp-for="Address" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CurrentJob">Trabajo Actual</label>
+                <input asp-for="CurrentJob" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CurrentPosition">Puesto que Desempeña</label>
+                <input asp-for="CurrentPosition" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </div>
+    </form>
+</div>
