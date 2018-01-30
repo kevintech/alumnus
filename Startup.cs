@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using alumnus.Data;
+using alumnus.Configuration;
 
 namespace alumnus
 {
@@ -33,6 +34,7 @@ namespace alumnus
             // Add framework services.
             services.AddDbContext<AlumnusContext>(opt => 
                 opt.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddMvc();
         }
 
