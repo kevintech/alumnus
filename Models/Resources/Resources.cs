@@ -17,7 +17,7 @@ namespace alumnus.Models.Resources
             get => _typeString; 
             set
             {
-                Type type;
+                TypeEnum type;
                 if(Enum.TryParse(value, out type))
                 {
                     _typeEnum = type;
@@ -25,9 +25,9 @@ namespace alumnus.Models.Resources
                 _typeString = value;
             }
         }
-        private Type _typeEnum;
+        private TypeEnum _typeEnum;
         [NotMapped]
-        public Type Type  { 
+        public TypeEnum Type  { 
             get => _typeEnum;
             set
             {
