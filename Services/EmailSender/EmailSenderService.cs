@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace alumnus.Services.EmailSender
 {
-    public class EmailSenderService
+    public class EmailSenderService : IEmailSender
     {
         private readonly EmailSettings _emailSettings;
 

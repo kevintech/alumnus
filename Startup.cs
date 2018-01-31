@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using MySql.Data.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using alumnus.Data;
 using alumnus.Configuration;
+using alumnus.Services.EmailSender;
 
 namespace alumnus
 {
@@ -36,6 +32,7 @@ namespace alumnus
                 opt.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddMvc();
+            services.AddTransient<IEmailSender, EmailSenderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
