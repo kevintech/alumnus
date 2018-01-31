@@ -39,7 +39,7 @@ namespace alumnus.Controllers.Api
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             _context.Contacts.Add(contact);
@@ -52,7 +52,7 @@ namespace alumnus.Controllers.Api
         {
             if (!ModelState.IsValid || contact.Id != id)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             var itemToUpdate = _context.Contacts.FirstOrDefault(i => i.Id == id);

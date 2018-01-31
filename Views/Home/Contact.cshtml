@@ -9,7 +9,13 @@
 </div>
 
 <div class="row" style="margin-bottom:25px; margin-top:25px">
-    <form method="post">
+    <div id="email-suggestion-fail" class="hidden alert alert-danger alert-dismissible" role="alert">
+        <strong>Error!</strong> Por favor verifica que tus datos sean correctos y vuelve a intentarlo.
+    </div>
+    <div id="email-suggestion-success" class="hidden alert alert-success alert-dismissible" role="alert">
+        <strong>Éxito!</strong> Muchas gracias, tu sugerencia ha sido enviada y nuestro equipo la revisará pronto.
+    </div>
+    <form id="email-suggestion-form" method="post">
         <div class="col-md-4">
             <div class="form-group">
                 <label for="fullname">Nombre Completo</label>
@@ -45,3 +51,12 @@
     <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+@section Scripts {
+    <script type="text/javascript">
+        (function(){
+            var contactForm = ContactFormController();
+            contactForm.init();
+        })();
+    </script>
+}

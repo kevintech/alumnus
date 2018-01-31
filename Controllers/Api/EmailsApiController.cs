@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace alumnus.Controllers.Api
 {
-    [Route("api/email")]
+    [Route("api/emails")]
     public class EmailsApiController : Controller
     {
         private readonly IEmailSender _emailService;
@@ -20,10 +20,10 @@ namespace alumnus.Controllers.Api
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
-            _emailService.SendEmailAsync(email: "",
+            _emailService.SendEmailAsync(email: "kevinfertech@gmail.com",
                 subject: EMAIL_SUGGESTION_SUBJECT, message: getMessage(content));
             return new OkResult();
         }

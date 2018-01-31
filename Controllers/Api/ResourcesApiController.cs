@@ -39,7 +39,7 @@ namespace alumnus.Controllers.Api
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             _context.Resources.Add(resource);
@@ -52,7 +52,7 @@ namespace alumnus.Controllers.Api
         {
             if (!ModelState.IsValid || resource.Id != id)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             var itemToUpdate = _context.Resources.FirstOrDefault(i => i.Id == id);
