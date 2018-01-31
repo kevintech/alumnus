@@ -17,7 +17,7 @@ var OportunitiesController = function()
 
     function post(event) {
         event.preventDefault();
-        var data = $(formElement).serializeArray();
+        var data = $(formElement).serializeFormJSON();
         $.ajax({
             url: POST_SUGGESTION_ENDPOINT,
             method: "POST",

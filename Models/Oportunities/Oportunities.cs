@@ -8,10 +8,12 @@ namespace alumnus.Models.Oportunities
     public class Oportunities
     {
         public int Id { get; set; }
+        [Required]
         public string Title { get; set; }
         public string Description { get; set; }
         [Column("end_date")]
         [DataType("date")]
+        [Required]
         public DateTime EndDate { get; set; }
         private string _typeString;
         [Column("type")]
