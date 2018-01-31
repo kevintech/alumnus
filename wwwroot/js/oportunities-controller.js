@@ -8,7 +8,6 @@ var OportunitiesController = function()
     var alertFailElement;
 
     function init() {
-        console.log("test")
         formElement = $("#" + FORM_ID);
         alertSuccessElement = $("#new-oportunities-success")
         alertFailElement = $("#new-oportunities-fail")

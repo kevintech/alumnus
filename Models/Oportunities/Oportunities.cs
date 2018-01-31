@@ -16,7 +16,6 @@ namespace alumnus.Models.Oportunities
         [Required]
         public DateTime EndDate { get; set; }
         [Column("type")]
-        [JsonIgnore]
         public string TypeString { get; set; }
         private TypeEnum _typeEnum;
         [NotMapped]

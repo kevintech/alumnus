@@ -11,7 +11,6 @@ namespace alumnus.Models.Resources
         public string Description { get; set; }
         public string Url { get; set; }
         [Column("type")]
-        [JsonIgnore]
         public string TypeString { get; set; }
         private TypeEnum _typeEnum;
         [NotMapped]
