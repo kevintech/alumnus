@@ -15,6 +15,7 @@ namespace alumnus.Models.Contacts
         [DataType("date")]
         public DateTime BirthDay { get; set; }
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
         public string Address { get; set; }
         [Column("graduation_date")]

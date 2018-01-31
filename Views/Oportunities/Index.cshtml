@@ -1,3 +1,4 @@
+@model IEnumerable<alumnus.Models.Oportunities.Oportunities>
 @{
     ViewData["Title"] = "Trabajos, EPS y Práctica Supervisada";
 }
@@ -15,7 +16,14 @@
             Agregar Registro
         </a>
     </div>
-    <div class="col-md-3 col-md-offset-3">
+    <div class="col-md-3">
+        <div class="input-group">
+            <select asp-items="Html.GetEnumSelectList<alumnus.Models.Oportunities.TypeEnum>()" class="form-control">
+                <option selected="selected" value="">Tipo de busqueda</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
         <div class="input-group">
             <input type="text" class="form-control" aria-label="...">
             <div class="input-group-btn">
@@ -36,16 +44,19 @@
                     <th>Fecha de finalización</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                @{ int i = 1; }
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.EndDate</td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
         </table>
     </div>
 </div>
-
-@section Scripts {
-    <script type="text/javascript">
-        (function(){
-            var table = OportunitiesTableComponent();
-            table.init();
-        })();
-    </script>
-}
