@@ -15,29 +15,26 @@ namespace alumnus.Models.Oportunities
         [DataType("date")]
         [Required]
         public DateTime EndDate { get; set; }
-        private string _typeString;
         [Column("type")]
         [JsonIgnore]
-        public string TypeString {
-            get => _typeString; 
-            set
-            {
-                TypeEnum type;
-                if(Enum.TryParse(value, out type))
-                {
-                    _typeEnum = type;
-                }
-                _typeString = value;
-            }
-        }
+        public string TypeString { get; set; }
         private TypeEnum _typeEnum;
         [NotMapped]
         public TypeEnum Type  { 
-            get => _typeEnum;
+            get
+            {
+                TypeEnum type;
+                if(Enum.TryParse(TypeString, true, out type))
+                {
+                    return type;
+                }
+                
+                return _typeEnum;
+            }
             set
             {
                 _typeEnum = value;
-                _typeString = value.ToString().ToLowerInvariant();
+                TypeString = value.ToString().ToLowerInvariant();
             }
         }
     }
