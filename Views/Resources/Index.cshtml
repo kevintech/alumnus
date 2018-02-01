@@ -1,3 +1,4 @@
+@model IEnumerable<alumnus.Models.Resources.Resources>
 @{
     ViewData["Title"] = "Enlaces y Archivos de interés para alumnos";
 }
@@ -33,14 +34,15 @@
             </div>
             <div class="panel-body">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pensum de la Carrera</h4>
-                        <p class="list-group-item-text">Test</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pensum de la Carrera</h4>
-                        <p class="list-group-item-text">Test</p>
-                    </a>
+                    @{ var listOfLinks = Model.Where(i => i.Type == alumnus.Models.Resources.TypeEnum.Link); }
+                    @if( listOfLinks.Count() == 0 ) { <span>No hay resultados</span> }
+                    @foreach(var item in listOfLinks)
+                    {
+                        <a href="@item.Url" target="_blank" class="list-group-item">
+                            <h4 class="list-group-item-heading">@item.Title</h4>
+                            <p class="list-group-item-text">@item.Description</p>
+                        </a>   
+                    }
                 </div>
             </div>
         </div>
@@ -55,14 +57,15 @@
             </div>
             <div class="panel-body">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pensum de la Carrera</h4>
-                        <p class="list-group-item-text">Test</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pensum de la Carrera</h4>
-                        <p class="list-group-item-text">Test</p>
-                    </a>
+                    @{ var listOfDocuments = Model.Where(i => i.Type == alumnus.Models.Resources.TypeEnum.Document); }
+                    @if( listOfDocuments.Count() == 0 ) { <span>No hay resultados</span> }
+                    @foreach(var item in listOfDocuments)
+                    {
+                        <a href="@item.Url" target="_blank" class="list-group-item">
+                            <h4 class="list-group-item-heading">@item.Title</h4>
+                            <p class="list-group-item-text">@item.Description</p>
+                        </a>   
+                    }
                 </div>
             </div>
         </div>
@@ -77,14 +80,15 @@
             </div>
             <div class="panel-body">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pensum de la Carrera</h4>
-                        <p class="list-group-item-text">Test</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pensum de la Carrera</h4>
-                        <p class="list-group-item-text">Test</p>
-                    </a>
+                    @{ var listOfNews = Model.Where(i => i.Type == alumnus.Models.Resources.TypeEnum.News); }
+                    @if( listOfNews.Count() == 0 ) { <span>No hay resultados</span> }
+                    @foreach(var item in listOfNews)
+                    {
+                        <a href="@item.Url" target="_blank" class="list-group-item">
+                            <h4 class="list-group-item-heading">@item.Title</h4>
+                            <p class="list-group-item-text">@item.Description</p>
+                        </a>   
+                    }
                 </div>
             </div>
         </div>
@@ -99,14 +103,15 @@
             </div>
             <div class="panel-body">
                 <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pensum de la Carrera</h4>
-                        <p class="list-group-item-text">Test</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pensum de la Carrera</h4>
-                        <p class="list-group-item-text">Test</p>
-                    </a>
+                    @{ var listOfEntries = Model.Where(i => i.Type == alumnus.Models.Resources.TypeEnum.Entry); }
+                    @if( listOfEntries.Count() == 0 ) { <span>No hay resultados</span> }
+                    @foreach(var item in listOfEntries)
+                    {
+                        <a href="@item.Url" target="_blank" class="list-group-item">
+                            <h4 class="list-group-item-heading">@item.Title</h4>
+                            <p class="list-group-item-text">@item.Description</p>
+                        </a>   
+                    }
                 </div>
             </div>
         </div>

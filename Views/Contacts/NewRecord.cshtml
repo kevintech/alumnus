@@ -10,7 +10,13 @@
 </div>
 
 <div class="row">
-    <form method="post">
+    <div id="new-contacts-fail" class="hidden alert alert-danger alert-dismissible" role="alert">
+        <strong>Error!</strong> Por favor verifica que los datos sean correctos y vuelve a intentarlo.
+    </div>
+    <div id="new-contacts-success" class="hidden alert alert-success alert-dismissible" role="alert">
+        <strong>Éxito!</strong> Muchas gracias, tu sugerencia ha sido enviada y nuestro equipo la revisará pronto.
+    </div>
+    <form id="new-contacts-form" method="post">
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="FirstName">Nombres</label>
@@ -64,3 +70,12 @@
         </div>
     </form>
 </div>
+
+@section Scripts {
+    <script type="text/javascript">
+        (function(){
+            var form = ContactsNewFormComponent();
+            form.init();
+        })();
+    </script>
+}

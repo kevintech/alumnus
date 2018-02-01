@@ -11,9 +11,10 @@ namespace alumnus.Models.Oportunities
         [Required]
         public string Title { get; set; }
         public string Description { get; set; }
-        [Column("end_date")]
-        [DataType("date")]
         [Required]
+        [DataType("date")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [Column("end_date")]
         public DateTime EndDate { get; set; }
         [Column("type")]
         public string TypeString { get; set; }

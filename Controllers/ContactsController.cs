@@ -1,16 +1,22 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using alumnus.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace alumnus.Controllers
 {
     public class ContactsController : Controller
     {
+        private readonly AlumnusContext _context;
+
+        public ContactsController(AlumnusContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var listOfContacts = _context.Contacts.ToList();
+            return View(listOfContacts);
         }
 
         public IActionResult New()
