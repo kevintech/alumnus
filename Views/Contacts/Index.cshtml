@@ -1,3 +1,4 @@
+@model IEnumerable<alumnus.Models.Contacts.Contacts>
 @{
     ViewData["Title"] = "Listado de Egresados";
 }
@@ -41,16 +42,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                </tr>
+                @{ var i = 1; }
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Email</td>
+                        <td>@Html.DisplayFor(Model => item.BirthDay)</td>
+                        <td>@item.Address</td>
+                        <td>@Html.DisplayFor(Model => item.GraduationDate)</td>
+                        <td>@item.CurrentPosition - @item.CurrentJob</td>
+                    </tr>
+                    i++;
+                }
             </tbody>
         </table>
     </div>

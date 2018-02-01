@@ -14,7 +14,8 @@
       "wwwroot/js/site.js",
       "wwwroot/js/contact-form-controller.js",
       "wwwroot/js/oportunities-controller.js",
-      "wwwroot/js/oportunities-table-component.js"
+      "wwwroot/js/oportunities-table-component.js",
+      "wwwroot/js/contacts-new-form-component.js"
     ],
     // Optionally specify minification options
     "minify": {
