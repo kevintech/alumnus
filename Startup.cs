@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using alumnus.Data;
 using alumnus.Configuration;
 using alumnus.Services.EmailSender;
+using System;
 
 namespace alumnus
 {
@@ -30,6 +32,24 @@ namespace alumnus
             // Add framework services.
             services.AddDbContext<AlumnusContext>(opt => 
                 opt.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<AlumnusContext, IdentityRole>();
+            services.Configure<IdentityOptions>(options => {
+                // Password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = false;
+                // Lockout settings
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 10;
+                // Cookie settings
+                options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(150);
+                options.Cookies.ApplicationCookie.LoginPath = "/Account/LogIn";
+                options.Cookies.ApplicationCookie.LogoutPath = "/Account/LogOut";
+                // User settings
+                options.User.RequireUniqueEmail = true;
+            });
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddMvc();
             services.AddTransient<IEmailSender, EmailSenderService>();
@@ -51,7 +71,7 @@ namespace alumnus
             }
 
             app.UseStaticFiles();
-
+            app.UseIdentity();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
