@@ -32,7 +32,9 @@ namespace alumnus
             // Add framework services.
             services.AddDbContext<AlumnusContext>(opt => 
                 opt.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<AlumnusContext, IdentityRole>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                    .AddEntityFrameworkStores<AlumnusContext>()
+                    .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(options => {
                 // Password settings
                 options.Password.RequireDigit = true;
