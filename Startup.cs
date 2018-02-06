@@ -31,7 +31,7 @@ namespace alumnus
         {
             // Add framework services.
             services.AddDbContext<AlumnusContext>(opt => 
-                opt.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
+                    opt.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddEntityFrameworkStores<AlumnusContext>()
                     .AddDefaultTokenProviders();
