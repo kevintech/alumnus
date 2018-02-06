@@ -77,7 +77,7 @@ namespace alumnus.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "El usuario y clave ingresados son incorrectos.");
                     return View(model);
                 }
             }
