@@ -17,7 +17,7 @@ namespace alumnus.Models.AccountViewModels
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmar password")]
-        [Compare("Password", ErrorMessage = "El password de confirmacíon no coinciden.")]
+        [Compare("Password", ErrorMessage = "El password de confirmacíon no coincide.")]
         public string ConfirmPassword { get; set; }
     }
 }

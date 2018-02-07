@@ -1,11 +1,11 @@
 @model alumnus.Models.Contacts.Contacts
 @{
-    ViewData["Title"] = "Registro de Alumno Egresado";
+    ViewData["Title"] = "Modificar Registro de Alumno Egresado";
 }
 
 <div class="row">
     <div class="col-md-12">
-        <h3>Nuevo Contacto</h3>
+        <h3>Modificar Contacto</h3>
         <p>
             Ingrese los datos correspondientes del alumno egresado que desea registar al sistema
         </p>
@@ -13,13 +13,16 @@
 </div>
 
 <div class="row">
-    <div id="new-contacts-fail" class="hidden alert alert-danger alert-dismissible" role="alert">
+    <div id="edit-contacts-fail" class="hidden alert alert-danger alert-dismissible" role="alert">
         <strong>Error!</strong> Por favor verifica que los datos sean correctos y vuelve a intentarlo.
     </div>
-    <div id="new-contacts-success" class="hidden alert alert-success alert-dismissible" role="alert">
-        <strong>Éxito!</strong> El registro ha sido creado.
+    <div id="edit-contacts-success" class="hidden alert alert-success alert-dismissible" role="alert">
+        <strong>Éxito!</strong> El registro ha sido modificado
     </div>
-    <form id="new-contacts-form" method="post">
+    <div id="remove-contacts-success" class="hidden alert alert-success alert-dismissible" role="alert">
+        <strong>Éxito!</strong> El registro ha sido eliminado.
+    </div>
+    <form id="edit-contacts-form" method="post">
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="FirstName">Nombres</label>
@@ -69,16 +72,19 @@
             </div>
         </div>
         <div class="col-md-12">
-            <button type="submit" class="btn btn-success">Agregar</button>
+            <input asp-for="Id" type="hidden" />
+            <button type="submit" class="btn btn-success">Modificar</button>
+            <button type="button" class="btn btn-danger" id="edit-contacts-remove">Eliminar</button>
         </div>
     </form>
 </div>
 
 @section Scripts {
+    <script src="~/js/contacts-edit-form-component.js" asp-append-version="true"></script>
     <script type="text/javascript">
         (function(){
-            var form = ContactsNewFormComponent();
-            form.init();
+            var form = ContactsEditFormComponent();
+            form.init(@Model.Id);
         })();
     </script>
 }

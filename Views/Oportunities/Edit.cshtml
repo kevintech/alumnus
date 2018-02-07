@@ -1,11 +1,11 @@
 @model alumnus.Models.Oportunities.Oportunities
 @{
-    ViewData["Title"] = "Agregar Trabajos y Anuncios";
+    ViewData["Title"] = "Modificar Registro de Trabajos y Anuncios";
 }
 
 <div class="row">
     <div class="col-md-12">
-        <h3>Nuevo Registro</h3>
+        <h3>Editar Registro</h3>
         <p>
             Ingrese los datos del anuncio que desea publicar sobre un trabajo, tema de EPS o una práctica supervisada
         </p>
@@ -13,13 +13,16 @@
 </div>
 
 <div class="row">
-    <div id="new-oportunities-fail" class="hidden alert alert-danger alert-dismissible" role="alert">
+    <div id="edit-oportunities-fail" class="hidden alert alert-danger alert-dismissible" role="alert">
         <strong>Error!</strong> Por favor verifica que los datos sean correctos y vuelve a intentarlo.
     </div>
-    <div id="new-oportunities-success" class="hidden alert alert-success alert-dismissible" role="alert">
-        <strong>Éxito!</strong> El registro ha sido creado.
+    <div id="edit-oportunities-success" class="hidden alert alert-success alert-dismissible" role="alert">
+        <strong>Éxito!</strong> El registro ha sido modificado.
     </div>
-    <form id="new-oportunities-form" method="post">
+    <div id="remove-oportunities-success" class="hidden alert alert-success alert-dismissible" role="alert">
+        <strong>Éxito!</strong> El registro ha sido eliminado.
+    </div>
+    <form id="edit-oportunities-form" method="post">
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Title">Título</label>
@@ -47,16 +50,19 @@
             </div>
         </div>
         <div class="col-md-12">
-            <button type="submit" class="btn btn-success">Agregar</button>
+            <input asp-for="Id" type="hidden" />
+            <button type="submit" class="btn btn-success">Modificar</button>
+            <button type="button" class="btn btn-danger" id="edit-oportunities-remove">Eliminar</button>
         </div>
     </form>
 </div>
 
 @section Scripts {
+    <script src="~/js/oportunities-edit-form-component.js" asp-append-version="true"></script>
     <script type="text/javascript">
         (function(){
-            var form = OportunitiesController();
-            form.init();
+            var form = OportunitiesEditFormComponent();
+            form.init(@Model.Id);
         })();
     </script>
 }

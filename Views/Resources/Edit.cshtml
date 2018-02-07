@@ -1,11 +1,11 @@
 @model alumnus.Models.Resources.Resources
 @{
-    ViewData["Title"] = "Agregar enlaces";
+    ViewData["Title"] = "Modificar enlaces";
 }
 
 <div class="row">
     <div class="col-md-12">
-        <h3>Nuevo Registro</h3>
+        <h3>Editar Registro</h3>
         <p>
             Ingrese los datos del enlace o archivo multimedia que desea publicar y elija el tipo (enlace de interés, noticia o archivo para descargar)
         </p>
@@ -13,13 +13,16 @@
 </div>
 
 <div class="row">
-    <div id="new-resources-fail" class="hidden alert alert-danger alert-dismissible" role="alert">
+    <div id="edit-resources-fail" class="hidden alert alert-danger alert-dismissible" role="alert">
         <strong>Error!</strong> Por favor verifica que los datos sean correctos y vuelve a intentarlo.
     </div>
-    <div id="new-resources-success" class="hidden alert alert-success alert-dismissible" role="alert">
-        <strong>Éxito!</strong> El registro ha sido creado.
+    <div id="edit-resources-success" class="hidden alert alert-success alert-dismissible" role="alert">
+        <strong>Éxito!</strong> El registro ha sido modificado
     </div>
-    <form id="new-resources-form" method="post">
+    <div id="remove-resources-success" class="hidden alert alert-success alert-dismissible" role="alert">
+        <strong>Éxito!</strong> El registro ha sido eliminado.
+    </div>
+    <form id="edit-resources-form" method="post">
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Title">Título</label>
@@ -47,17 +50,19 @@
             </div>
         </div>
         <div class="col-md-12">
-            <button type="submit" class="btn btn-success">Agregar</button>
+            <input asp-for="Id" type="hidden" />
+            <button type="submit" class="btn btn-success">Modificar</button>
+            <button type="button" class="btn btn-danger" id="edit-resources-remove">Eliminar</button>
         </div>
     </form>
 </div>
 
 @section Scripts {
-    <script src="~/js/resources-new-form-component.js" asp-append-version="true"></script>
+    <script src="~/js/resources-edit-form-component.js" asp-append-version="true"></script>
     <script type="text/javascript">
         (function(){
-            var form = ResourcesNewFormComponent();
-            form.init();
+            var form = ResourcesEditFormComponent();
+            form.init(@Model.Id);
         })();
     </script>
 }
