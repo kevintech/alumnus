@@ -43,10 +43,23 @@
                     @if( listOfLinks.Count() == 0 ) { <span>No hay resultados</span> }
                     @foreach(var item in listOfLinks)
                     {
-                        <a href="@item.Url" target="_blank" class="list-group-item">
-                            <h4 class="list-group-item-heading">@item.Title</h4>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                @item.Title
+                                <a href="@item.Url" target="_blank" >
+                                    <span class="glyphicon glyphicon-link"></span>
+                                </a>
+                            </h4>
                             <p class="list-group-item-text">@item.Description</p>
-                        </a>   
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <p class="list-group-item-text">
+                                    <a asp-area="" asp-controller="Resources" asp-action="Edit" asp-route-id="@item.Id">
+                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                    </a>
+                                </p>
+                            }
+                        </div>
                     }
                 </div>
             </div>
@@ -66,10 +79,23 @@
                     @if( listOfDocuments.Count() == 0 ) { <span>No hay resultados</span> }
                     @foreach(var item in listOfDocuments)
                     {
-                        <a href="@item.Url" target="_blank" class="list-group-item">
-                            <h4 class="list-group-item-heading">@item.Title</h4>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                @item.Title
+                                <a href="@item.Url" target="_blank" >
+                                    <span class="glyphicon glyphicon-link"></span>
+                                </a>
+                            </h4>
                             <p class="list-group-item-text">@item.Description</p>
-                        </a>   
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <p class="list-group-item-text">
+                                    <a asp-area="" asp-controller="Resources" asp-action="Edit" asp-route-id="@item.Id">
+                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                    </a>
+                                </p>
+                            }
+                        </div>   
                     }
                 </div>
             </div>
@@ -89,10 +115,23 @@
                     @if( listOfNews.Count() == 0 ) { <span>No hay resultados</span> }
                     @foreach(var item in listOfNews)
                     {
-                        <a href="@item.Url" target="_blank" class="list-group-item">
-                            <h4 class="list-group-item-heading">@item.Title</h4>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                @item.Title
+                                <a href="@item.Url" target="_blank" >
+                                    <span class="glyphicon glyphicon-link"></span>
+                                </a>
+                            </h4>
                             <p class="list-group-item-text">@item.Description</p>
-                        </a>   
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <p class="list-group-item-text">
+                                    <a asp-area="" asp-controller="Resources" asp-action="Edit" asp-route-id="@item.Id">
+                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                    </a>
+                                </p>
+                            }
+                        </div>
                     }
                 </div>
             </div>
@@ -112,10 +151,23 @@
                     @if( listOfEntries.Count() == 0 ) { <span>No hay resultados</span> }
                     @foreach(var item in listOfEntries)
                     {
-                        <a href="@item.Url" target="_blank" class="list-group-item">
-                            <h4 class="list-group-item-heading">@item.Title</h4>
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                @item.Title
+                                <a href="@item.Url" target="_blank" >
+                                    <span class="glyphicon glyphicon-link"></span>
+                                </a>
+                            </h4>
                             <p class="list-group-item-text">@item.Description</p>
-                        </a>   
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <p class="list-group-item-text">
+                                    <a asp-area="" asp-controller="Resources" asp-action="Edit" asp-route-id="@item.Id">
+                                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                                    </a>
+                                </p>
+                            }
+                        </div>
                     }
                 </div>
             </div>

@@ -13,8 +13,12 @@
     "inputFiles": [
       "wwwroot/js/site.js",
       "wwwroot/js/contact-form-controller.js",
-      "wwwroot/js/oportunities-controller.js",
+      "wwwroot/js/oportunities-edit-form-component.js",
+      "wwwroot/js/oportunities-new-form-component.js",
       "wwwroot/js/oportunities-table-component.js",
+      "wwwroot/js/resources-edit-form-component.js",
+      "wwwroot/js/resources-new-form-component.js",
+      "wwwroot/js/contacts-edit-form-component.js",
       "wwwroot/js/contacts-new-form-component.js"
     ],
     // Optionally specify minification options

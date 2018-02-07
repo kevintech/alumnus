@@ -1,4 +1,4 @@
-var OportunitiesController = function()
+var OportunitiesNewFormComponent = function()
 {
     "use strict";
     var FORM_ID = "new-oportunities-form";

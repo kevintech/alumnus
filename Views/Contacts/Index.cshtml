@@ -39,6 +39,7 @@
                     <th>Dirección</th>
                     <th>Fecha de graduación</th>
                     <th>Trabajo actual</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -54,6 +55,11 @@
                         <td>@item.Address</td>
                         <td>@Html.DisplayFor(Model => item.GraduationDate)</td>
                         <td>@item.CurrentPosition - @item.CurrentJob</td>
+                        <td>
+                            <a asp-area="" asp-controller="Contacts" asp-action="Edit" asp-route-id="@item.Id">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                        </td>
                     </tr>
                     i++;
                 }
