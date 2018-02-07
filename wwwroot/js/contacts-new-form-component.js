@@ -4,18 +4,21 @@ var ContactsNewFormComponent = function()
     var FORM_ID = "new-contacts-form";
     var POST_SUGGESTION_ENDPOINT = "/api/contacts";
     var formElement;
+    var buttonElement;
     var alertSuccessElement;
     var alertFailElement;
 
     function init() {
         formElement = $("#" + FORM_ID);
-        alertSuccessElement = $("#new-contacts-success")
-        alertFailElement = $("#new-contacts-fail")
+        buttonElement = $(formElement).find("button");
+        alertSuccessElement = $("#new-contacts-success");
+        alertFailElement = $("#new-contacts-fail");
         $(formElement).on("submit", post);
     }
 
     function post(event) {
         event.preventDefault();
+        $(buttonElement).button("loading");
         var data = $(formElement).serializeFormJSON();
         $.ajax({
             url: POST_SUGGESTION_ENDPOINT,
@@ -30,11 +33,13 @@ var ContactsNewFormComponent = function()
         $(alertFailElement).addClass("hidden");
         $(alertSuccessElement).removeClass("hidden");
         $(formElement).trigger("reset");
+        $(buttonElement).button("reset");
     }
 
     function postFail(response) {
         $(alertSuccessElement).addClass("hidden");
         $(alertFailElement).removeClass("hidden");
+        $(buttonElement).button("reset");
     }
 
     return {

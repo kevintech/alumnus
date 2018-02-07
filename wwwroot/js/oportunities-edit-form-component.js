@@ -6,6 +6,7 @@ var OportunitiesEditFormComponent = function()
     var POST_SUGGESTION_ENDPOINT = "/api/oportunities";
     var RECORD_ID = 0;
     var formElement;
+    var buttonElement;
     var removeButtonElement;
     var alertRemoveSuccessElement;
     var alertSuccessElement;
@@ -14,8 +15,9 @@ var OportunitiesEditFormComponent = function()
     function init(id) {
         RECORD_ID = id;
         formElement = $("#" + FORM_ID);
+        buttonElement = $(formElement).find("button[type=submit]");
         removeButtonElement = $("#" + REMOVE_BTN_ID);
-        alertRemoveSuccessElement = $("#remove-oportunities-success")
+        alertRemoveSuccessElement = $("#remove-oportunities-success");
         alertSuccessElement = $("#edit-oportunities-success");
         alertFailElement = $("#edit-oportunities-fail");
         $(formElement).on("submit", post);
@@ -24,6 +26,7 @@ var OportunitiesEditFormComponent = function()
 
     function post(event) {
         event.preventDefault();
+        $(buttonElement).button("loading");
         var data = $(formElement).serializeFormJSON();
         var url = POST_SUGGESTION_ENDPOINT + "/" + RECORD_ID;
         $.ajax({
@@ -38,15 +41,19 @@ var OportunitiesEditFormComponent = function()
     function postSuccess(response) {
         $(alertFailElement).addClass("hidden");
         $(alertSuccessElement).removeClass("hidden");
+        $(buttonElement).button("reset");
     }
 
     function postFail(response) {
         $(alertSuccessElement).addClass("hidden");
         $(alertFailElement).removeClass("hidden");
+        $(buttonElement).button("reset");
+        $(removeButtonElement).button("reset");
     }
 
     function remove(event) {
         event.preventDefault();
+        $(removeButtonElement).button("loading");
         if (RECORD_ID==0) return;
         var url = POST_SUGGESTION_ENDPOINT + "/" + RECORD_ID;
         $.ajax({
@@ -61,6 +68,7 @@ var OportunitiesEditFormComponent = function()
     function removeSuccess(response) {
         $(alertFailElement).addClass("hidden");
         $(alertRemoveSuccessElement).removeClass("hidden");
+        $(removeButtonElement).button("reset");
     }
 
     return {
