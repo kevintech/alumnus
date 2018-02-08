@@ -8,6 +8,8 @@ namespace alumnus.Models.Contacts
     {
         public int Id { get;set; }
         [Required]
+        public string Collegiate { get; set; }
+        [Required]
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
@@ -18,6 +20,8 @@ namespace alumnus.Models.Contacts
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+        [Column("phone_number")]
+        public string PhoneNumber { get; set; }
         public string Address { get; set; }
         [DataType("date")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
@@ -27,5 +31,9 @@ namespace alumnus.Models.Contacts
         public string CurrentJob { get; set; }
         [Column("current_position")]
         public string CurrentPosition { get; set; }
+        [Column("current_degree")]
+        public string CurrentDegree { get; set; }
+        [Column("other_courses")]
+        public string OtherCourses { get; set; }
     }
 }

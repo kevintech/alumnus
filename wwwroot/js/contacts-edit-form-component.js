@@ -17,7 +17,7 @@ var ContactsEditFormComponent = function()
         formElement = $("#" + FORM_ID);
         buttonElement = $(formElement).find("button[type=submit]");
         removeButtonElement = $("#" + REMOVE_BTN_ID);
-        alertRemoveSuccessElement = $("#remove-oportunities-success");
+        alertRemoveSuccessElement = $("#remove-contacts-success");
         alertSuccessElement = $("#edit-contacts-success");
         alertFailElement = $("#edit-contacts-fail");
         $(formElement).on("submit", post);

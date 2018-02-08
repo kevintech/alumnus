@@ -52,9 +52,9 @@ namespace alumnus
                 // User settings
                 options.User.RequireUniqueEmail = true;
             });
-            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.Configure<SendGridEmailSettings>(Configuration.GetSection("SendGridEmailSettings"));
             services.AddMvc();
-            services.AddTransient<IEmailSender, EmailSenderService>();
+            services.AddTransient<IEmailSender, SendGridService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,45 @@
+@model IEnumerable<IdentityUser>
+@{
+    ViewData["Title"] = "Listado de Usuarios";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewData["Title"].</h2>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom:25px">
+    <div class="col-md-6">
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Register">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Agregar Usuario
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ var i = 1; }
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.UserName</td>
+                        <td></td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

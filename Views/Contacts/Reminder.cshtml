@@ -1,0 +1,45 @@
+@model alumnus.Models.Contacts.InviteViewModel
+@{
+    ViewData["Title"] = "Envío de Recordatorio";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewData["Title"].</h2>
+        <p>
+            Escriba el mensaje que desea enviar a el estudiante.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    @if(Model.Sent)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <strong>Éxito!</strong> El mensaje ha sido enviado.
+        </div>
+    }
+    <form id="new-contacts-form" method="post" asp-controller="Contacts" asp-action="Reminder">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Emails">Alumno:</label>
+                <select asp-for="Emails" asp-items="Model.Contacts" class="form-control"></select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Subject">Asunto del Correo:</label>
+                <input asp-for="Subject" class="form-control" placeholder="Recordatorio de Validez de Datos..." />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="Message">Cuerpo del Mensaje:</label>
+                <textarea asp-for="Message" rows="6" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success" data-loading-text="Enviando...">Enviar</button>
+        </div>
+    </form>
+</div>

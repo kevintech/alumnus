@@ -33,5 +33,10 @@ namespace alumnus.Services.EmailSender
                 await client.PostAsync(_emailSettings.RequestUri, content).ConfigureAwait(false);
             }
         }
+
+        public void SendEmailAsync(IList<string> emails, string subject, string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -65,8 +65,12 @@ namespace alumnus.Controllers.Api
             itemToUpdate.LastName = contact.LastName;
             itemToUpdate.BirthDay = contact.BirthDay;
             itemToUpdate.Email = contact.Email;
+            itemToUpdate.PhoneNumber = contact.PhoneNumber;
+            itemToUpdate.Collegiate = contact.Collegiate;
             itemToUpdate.Address = contact.Address;
             itemToUpdate.GraduationDate = contact.GraduationDate;
+            itemToUpdate.CurrentDegree = contact.CurrentDegree;
+            itemToUpdate.OtherCourses = contact.OtherCourses;
             itemToUpdate.CurrentJob = contact.CurrentJob;
             itemToUpdate.CurrentPosition = contact.CurrentPosition;
             _context.Contacts.Update(itemToUpdate);
