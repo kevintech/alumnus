@@ -12,7 +12,7 @@
 </div>
 
 <div class="row" style="margin-bottom:25px">
-    <div class="col-md-6">
+    <div class="col-md-4">
         @if (SignInManager.IsSignedIn(User))
         {
             <a class="btn btn-primary" asp-controller="Oportunities" asp-action="New">
@@ -21,16 +21,19 @@
             </a>
         }
     </div>
+    <div class="col-md-2 text-right">
+        <label>Tipo:</label>
+    </div>
     <div class="col-md-3">
         <div class="input-group">
-            <select asp-items="Html.GetEnumSelectList<alumnus.Models.Oportunities.TypeEnum>()" class="form-control">
+            <select id="type-search" asp-items="Html.GetEnumSelectList<alumnus.Models.Oportunities.TypeEnum>()" class="form-control">
                 <option selected="selected" value="">Tipo de busqueda</option>
             </select>
         </div>
     </div>
     <div class="col-md-3">
         <div class="input-group">
-            <input type="text" class="form-control" aria-label="...">
+            <input type="text" class="form-control" id="input-search" aria-label="...">
             <div class="input-group-btn">
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </div>
@@ -54,7 +57,8 @@
                 @{ int i = 1; }
                 @foreach(var item in Model)
                 {
-                    <tr>
+                    <tr data-title="@item.Title"
+                        data-type="@((int)item.Type)">
                         <td>@i</td>
                         <td>@item.Title</td>
                         <td>@item.Description</td>
@@ -74,3 +78,13 @@
         </table>
     </div>
 </div>
+
+@section Scripts {
+    <script src="~/js/oportunities-table-component.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        (function(){
+            var form = OportunitiesTableComponent();
+            form.init();
+        })();
+    </script>
+}

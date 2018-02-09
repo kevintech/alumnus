@@ -1,6 +1,8 @@
+using alumnus.Configuration;
 using alumnus.Models.Emails;
 using alumnus.Services.EmailSender;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace alumnus.Controllers.Api
 {
@@ -8,11 +10,13 @@ namespace alumnus.Controllers.Api
     public class EmailsApiController : Controller
     {
         private readonly IEmailSender _emailService;
+        private readonly SendGridEmailSettings _emailSettings;
         private const string EMAIL_SUGGESTION_SUBJECT = "Nueva Sugerencia - Portal de Egresados CUNOC-USAC";
         
-        public EmailsApiController(IEmailSender emailService)
+        public EmailsApiController(IEmailSender emailService, IOptions<SendGridEmailSettings> emailOptions)
         {
             _emailService = emailService;
+            _emailSettings = emailOptions.Value;
         }
 
         [HttpPost]
@@ -23,7 +27,7 @@ namespace alumnus.Controllers.Api
                 return BadRequest(ModelState);
             }
 
-            _emailService.SendEmailAsync(email: "kevinfertech@gmail.com",
+            _emailService.SendEmailAsync(email: _emailSettings.SuggestionsDeliverTo,
                 subject: EMAIL_SUGGESTION_SUBJECT, message: getMessage(content));
             return new OkResult();
         }

@@ -1,39 +1,23 @@
-var OportunitiesTableComponent = function()
+var ContactsTableComponent = function()
 {
     "use strict";
-    var TABLE_ID = "oportunities-table";
+    var TABLE_ID = "contacts-table";
     var INPUT_SEARCH_ID = "input-search";
-    var ENDPOINT = "/api/oportunities";
+    var ENDPOINT = "/api/contacts";
     var tableElement;
     var tableBodyElement;
     var inputSearchElement;
-    var typeSearchElement;
 
     function init() {
         tableElement = $("#" + TABLE_ID);
         tableBodyElement = $(tableElement).find("tbody");
         inputSearchElement = $("#" + INPUT_SEARCH_ID);
-        typeSearchElement = $("#type-search");
         $(inputSearchElement).on("keyup", filter);
-        $(typeSearchElement).change(filterType);
-    }
-
-    function getTypeFiltered() {
-        return $(typeSearchElement).val().toString();
-    }
-
-    function filterType(event) {
-        if (getTypeFiltered()==="") {
-            resetSearch();
-            return;
-        }
-
-        applySearch("");
     }
 
     function filter(event) {
         var query = $(this).val();
-        if (query.length===0 && getTypeFiltered()==="") {
+        if (query.length===0) {
             resetSearch();
             return;
         }
@@ -46,11 +30,19 @@ var OportunitiesTableComponent = function()
         $(tableBodyElement).find("tr")
             .map(function() {
                 var data = $(this).data();
-                if (getTypeFiltered()!=="" && data.type.toString()!==getTypeFiltered())
+                if (data.collegiate.toString().indexOf(query)>-1)
                 {
-                    return;
+                    return this;
                 }
-                if (data.title.toString().toLowerCase().indexOf(query)>-1)
+                if (data.currentJob.toString().toLowerCase().indexOf(query)>-1)
+                {
+                    return this;
+                }
+                if (data.email.toString().toLowerCase().indexOf(query)>-1)
+                {
+                    return this;
+                }
+                if (data.name.toString().toLowerCase().indexOf(query)>-1)
                 {
                     return this;
                 }
@@ -94,6 +86,7 @@ var OportunitiesTableComponent = function()
     }
 
     return {
-        init: init
+        init: init,
+        getAll: getAll
     }
 }
