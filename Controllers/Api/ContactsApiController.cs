@@ -63,6 +63,7 @@ namespace alumnus.Controllers.Api
 
             itemToUpdate.FirstName = contact.FirstName;
             itemToUpdate.LastName = contact.LastName;
+            itemToUpdate.Dpi = contact.Dpi;
             itemToUpdate.BirthDay = contact.BirthDay;
             itemToUpdate.Email = contact.Email;
             itemToUpdate.PhoneNumber = contact.PhoneNumber;

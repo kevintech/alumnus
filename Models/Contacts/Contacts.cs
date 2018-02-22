@@ -14,6 +14,8 @@ namespace alumnus.Models.Contacts
         [Required]
         public string LastName { get; set; }
         [Required]
+        public string Dpi { get; set; }
+        [Required]
         [DataType("date")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDay { get; set; }
